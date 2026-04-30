@@ -160,3 +160,4 @@ C:\Users\Ansh.Garg\Desktop\practice\C Sharp\skyora1\skyora1\obj\Debug\net10.0\re
 C:\Users\Ansh.Garg\Desktop\practice\C Sharp\skyora1\skyora1\obj\Debug\net10.0\skyora1.pdb
 C:\Users\Ansh.Garg\Desktop\practice\C Sharp\skyora1\skyora1\obj\Debug\net10.0\skyora1.genruntimeconfig.cache
 C:\Users\Ansh.Garg\Desktop\practice\C Sharp\skyora1\skyora1\obj\Debug\net10.0\ref\skyora1.dll
+C:\Users\Ansh.Garg\Desktop\practice\C Sharp\skyora1\skyora1\obj\Debug\net10.0\skyora1.sourcelink.json
