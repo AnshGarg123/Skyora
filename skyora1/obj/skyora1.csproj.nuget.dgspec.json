@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ansh.Garg\\Desktop\\practice\\C Sharp\\skyora1\\skyora1\\skyora1.csproj": {}
+    "C:\\Users\\Prasoon.Mishra\\source\\repos\\Skyora\\skyora1\\skyora1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ansh.Garg\\Desktop\\practice\\C Sharp\\skyora1\\skyora1\\skyora1.csproj": {
+    "C:\\Users\\Prasoon.Mishra\\source\\repos\\Skyora\\skyora1\\skyora1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ansh.Garg\\Desktop\\practice\\C Sharp\\skyora1\\skyora1\\skyora1.csproj",
+        "projectUniqueName": "C:\\Users\\Prasoon.Mishra\\source\\repos\\Skyora\\skyora1\\skyora1.csproj",
         "projectName": "skyora1",
-        "projectPath": "C:\\Users\\Ansh.Garg\\Desktop\\practice\\C Sharp\\skyora1\\skyora1\\skyora1.csproj",
-        "packagesPath": "C:\\Users\\Ansh.Garg\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ansh.Garg\\Desktop\\practice\\C Sharp\\skyora1\\skyora1\\obj\\",
+        "projectPath": "C:\\Users\\Prasoon.Mishra\\source\\repos\\Skyora\\skyora1\\skyora1.csproj",
+        "packagesPath": "C:\\Users\\Prasoon.Mishra\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Prasoon.Mishra\\source\\repos\\Skyora\\skyora1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Ansh.Garg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Prasoon.Mishra\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
