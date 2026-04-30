@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("skyora1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c8c961379b58fcaef0cff1dbdd64eaadaefcd26")]
 [assembly: System.Reflection.AssemblyProductAttribute("skyora1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("skyora1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
