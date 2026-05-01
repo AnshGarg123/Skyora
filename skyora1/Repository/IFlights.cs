@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;   
+﻿using System.Collections.Generic;
+using skyora1.DTO;
 using skyora1.Models;
 namespace skyora1.Repository
 {
@@ -6,8 +7,8 @@ namespace skyora1.Repository
     {
         Task<IEnumerable<Flight>> GetAllFlightsAsync();
         Task<Flight> GetFlightByIdAsync(int id);
-        Task<int> AddFlightAsync(Flight flight);
-        Task<int> EditFlightAsync(int id, Flight flight);
+        Task<int> AddFlightAsync(FlightDto flight);
+        Task<int> EditFlightAsync(int id,FlightDto flight);
         Task<int> DeleteFlightAsync(int id);
     }
 }

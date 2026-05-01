@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using skyora1.DAL;
+using skyora1.DTO;
 using skyora1.Models;
 
 namespace skyora1.Repository
@@ -12,10 +13,17 @@ namespace skyora1.Repository
             this.appDbContext = appDbContext;
             
         }
-        public async Task<int> AddBooking(Booking booking)
+        public async Task<int> AddBooking(BookingDto booking)
         {
-
-            await appDbContext.bookings.AddAsync(booking);
+            var book= new Booking
+            {
+                UserId = booking.UserId,
+                FlightId=booking.FlightId,
+                NumberOfPassengers=booking.NumberOfPassengers,
+                TotalAmount=booking.TotalAmount,
+                BookingStatus=booking.BookingStatus
+            };
+            await appDbContext.bookings.AddAsync(book);
             await appDbContext.SaveChangesAsync();
             return booking.BookingId;
 
@@ -34,26 +42,40 @@ namespace skyora1.Repository
             else
                 return 404;
         }
-
-
-
-        public async Task<List<Booking>> GetBookingAsync()
+        public async Task<List<GetBookingDto>> GetBookingAsync()
         {
             return await appDbContext.bookings
-                .Include(b => b.User)
-                .Include(b => b.Flight)
                 .Include(b => b.Passengers)
+                .Select(b => new GetBookingDto
+                {
+                    BookingId = b.BookingId,
+                    UserId = b.UserId,
+                    FlightId = b.FlightId,
+                    NumberOfPassengers = b.NumberOfPassengers,
+                    TotalAmount = b.TotalAmount,
+                    BookingStatus = b.BookingStatus,
+                    Passengers = b.Passengers
+                })
                 .ToListAsync();
         }
 
 
-        public async Task<Booking> GetBookingById(int id)
+        public async Task<GetBookingDto> GetBookingById(int id)
         {
             return await appDbContext.bookings
-                .Include(b => b.User)
-                .Include(b => b.Flight)
                 .Include(b => b.Passengers)
-                .FirstOrDefaultAsync(x => x.BookingId == id);
+                .Where(b => b.BookingId == id)
+                .Select(b => new GetBookingDto
+                {
+                    BookingId = b.BookingId,
+                    UserId = b.UserId,
+                    FlightId = b.FlightId,
+                    NumberOfPassengers = b.NumberOfPassengers,
+                    TotalAmount = b.TotalAmount,
+                    BookingStatus = b.BookingStatus,
+                    Passengers = b.Passengers
+                })
+                .FirstOrDefaultAsync();
         }
     }
 }

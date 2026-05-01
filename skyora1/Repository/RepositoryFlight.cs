@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using skyora1.DAL;
+using skyora1.DTO;
 using skyora1.Models;
 
 namespace skyora1.Repository
@@ -13,11 +14,26 @@ namespace skyora1.Repository
             _context = context;
         }
 
-        public async Task<int> AddFlightAsync(Flight flight)
+        public async Task<int> AddFlightAsync(FlightDto flight)
         {
-            await _context.flights.AddAsync(flight);
+            var Flight = new skyora1.Models.Flight
+            {
+                // Don't map FlightId if it's auto-incrementing (Identity)
+                FlightNo = flight.FlightNo,
+                Source = flight.Source,
+                Destination = flight.Destination,
+                DepartureTime = flight.DepartureTime,
+                ArrivalTime = flight.ArrivalTime,
+                TotalBusinessSeats = flight.TotalBusinessSeats,
+                TotalEconomySeats = flight.TotalEconomySeats,
+                AvailableBusinessSeats = flight.AvailableBusinessSeats,
+                AvailableEconomySeats = flight.AvailableEconomySeats,
+                BusinessPrice = flight.BusinessPrice,
+                EconomyPrice = flight.EconomyPrice
+            };
+            await _context.flights.AddAsync(Flight);
             await _context.SaveChangesAsync();
-            return flight.FlightId;
+            return Flight.FlightId;
         }
 
         public async Task<int> DeleteFlightAsync(int id)
@@ -53,7 +69,7 @@ namespace skyora1.Repository
             return await flight;
         }
 
-        public async Task<int> EditFlightAsync(int id, Flight flight)
+        public async Task<int> EditFlightAsync(int id, FlightDto flight)
         {
             var data = await _context.flights.Where(x => x.FlightId == id).FirstOrDefaultAsync();
 

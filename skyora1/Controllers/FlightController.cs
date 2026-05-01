@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using skyora1.DAL;
 using skyora1.Repository;
 using skyora1.Models;
+using skyora1.DTO;
 
 namespace skyora1.Controllers
 {
@@ -39,7 +40,7 @@ namespace skyora1.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddFlight(Flight flight)
+        public async Task<IActionResult> AddFlight(FlightDto flight)
         {
             try
             {
@@ -60,7 +61,7 @@ namespace skyora1.Controllers
 
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> EditFlight(int id, Flight flight)
+        public async Task<IActionResult> EditFlight(int id, FlightDto flight)
         {
             try
             {

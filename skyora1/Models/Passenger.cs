@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace skyora1.Models
 {
@@ -10,6 +11,7 @@ namespace skyora1.Models
 
         // ✅ Correct FK
         public int BookingId { get; set; }
+        [JsonIgnore]
 
         [ForeignKey(nameof(BookingId))]
         public Booking Booking { get; set; }

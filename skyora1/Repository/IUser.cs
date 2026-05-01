@@ -1,4 +1,5 @@
-﻿using skyora1.Models;
+﻿using skyora1.DTO;
+using skyora1.Models;
 
 namespace skyora1.Repository
 {
@@ -6,8 +7,8 @@ namespace skyora1.Repository
     {
         Task<List<User>> GetAllUsers();
         Task<User> GetUserById(int empid);
-        Task<int> AddUser(User user);
-        Task<int> UpdateUser(int id, User user);
+        Task<int> AddUser(UserDto userDto);
+        Task<int> UpdateUser(int id, UpdateUserDto updateUserDto);
         Task<int> DeleteUser(int id);
     }
 }

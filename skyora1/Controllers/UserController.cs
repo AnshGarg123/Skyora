@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using skyora1.DTO;
 using skyora1.Models;
 using skyora1.Repository;
 
@@ -36,7 +37,7 @@ namespace skyora1.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> AddUser(User user)
+        public async Task<IActionResult> AddUser(UserDto user)
         {
             user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash);
 
@@ -44,8 +45,9 @@ namespace skyora1.Controllers
             return Ok(data);
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUser(int id, User user)
+        public async Task<IActionResult> UpdateUser(int id, UpdateUserDto user)
         {
+            user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash);
             int data = await _userRepo.UpdateUser(id, user);
             if (data > 0)
             {

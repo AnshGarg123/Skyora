@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using skyora1.DTO;
 using skyora1.Models;
 using skyora1.Repository;
 
@@ -33,7 +34,7 @@ public class BookingController : ControllerBase
 
     // ✅ ADD BOOKING
     [HttpPost]
-    public async Task<IActionResult> AddBooking([FromBody] Booking booking)
+    public async Task<IActionResult> AddBooking([FromBody] BookingDto booking)
     {
         var bookingId = await _booking.AddBooking(booking);
         return CreatedAtAction(nameof(GetBookingById),

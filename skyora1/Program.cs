@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using skyora1.DAL;
+using skyora1.Repository;
 using System.Security.Claims;
 using System.Text;
 
@@ -24,6 +25,10 @@ namespace skyora1
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddScoped<IBooking,IBookingRepository>();
+            builder.Services.AddScoped<IFlights, RepositoryFlight>();
+            builder.Services.AddScoped<IUser,RepositoryUser>();
+            builder.Services.AddScoped<IUserLogin,UserLoginRepository>();
             builder.Services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("conn"));

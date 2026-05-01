@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using skyora1.DAL;
+using skyora1.DTO;
 using skyora1.Models;
 
 
@@ -14,8 +15,17 @@ namespace skyora1.Repository
             this.appDBContext = appDBContext;
         }
 
-        public async Task<int> AddUser(User user)
+        public async Task<int> AddUser(UserDto userDto)
         {
+            var user = new skyora1.Models.User
+            {
+                Name = userDto.Name,
+                Age = userDto.Age,
+                Gender = userDto.Gender,
+                Role = userDto.Role,
+                Email = userDto.Email,
+                PasswordHash = userDto.PasswordHash
+            };
             await appDBContext.users.AddAsync(user);
             await appDBContext.SaveChangesAsync();
             return user.UserId;
@@ -45,7 +55,7 @@ namespace skyora1.Repository
             return data;
         }
 
-        public async Task<int> UpdateUser(int id, User user)
+        public async Task<int> UpdateUser(int id, UpdateUserDto user)
         {
             var data = await appDBContext.users.Where(x => x.UserId == id).FirstOrDefaultAsync();
             if (data != null)
