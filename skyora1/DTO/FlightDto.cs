@@ -1,9 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
 
-namespace skyora1.Models
+namespace skyora1.DTO
 {
-    public class Flight
+    public class FlightDto
     {
         [Key]
         public int FlightId { get; set; }
@@ -20,8 +19,5 @@ namespace skyora1.Models
 
         public decimal BusinessPrice { get; set; }
         public decimal EconomyPrice { get; set; }
-        [JsonIgnore]
-        public ICollection<Booking> Bookings { get; set; } = new List<Booking>();
-
     }
 }
